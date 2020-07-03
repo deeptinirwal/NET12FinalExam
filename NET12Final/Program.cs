@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace NET12Final
 {
@@ -6,8 +6,7 @@ namespace NET12Final
     {
         static void Main(string[] args)
         {
-            Adult[] ad = new Adult[10];
-            Child[] cd = new Child[10];
+            Adult[] ad = new Child[5];
 
             for(int i=0;i<ad.Length;i++)
             {
@@ -18,40 +17,24 @@ namespace NET12Final
             Console.WriteLine("First Names and Last Names are");
             for (int i = 0; i < ad.Length; i++)
             {
-                ad[i].PrintAName();
+                ad[i].PrintName();
             }
 
-            for (int i = 0; i < cd.Length; i++)
-            {
-                Console.WriteLine("Enter the First Name and Last Name");
-                cd[i].FirstName = Console.ReadLine();
-                 cd[i].LastName = Console.ReadLine();
-            }
-            Console.WriteLine("First Names and Last Names are");
-            for (int i = 0; i < ad.Length; i++)
-            {
-                cd[i].PrintCName();
-            }
-
-
-
+           
 
         }
-        public class Adult
+    public abstract class Adult
     {
-        public string FirstName;
-        public string LastName;
-        public void PrintAName()
-        {
-            Console.WriteLine("First Name is {0} Last Name is {1}", FirstName, LastName);
-        }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public abstract void PrintName();
+            
+        
     }
 
-    public class Child 
+    public class Child :Adult
     {
-        public string FirstName;
-        public string LastName;
-        public void PrintCName()
+       public override void PrintName()
         {
         Console.WriteLine("First Name is {0} Last Name is {1}", FirstName, LastName);
         }
